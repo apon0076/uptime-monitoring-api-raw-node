@@ -1,22 +1,20 @@
-// dependancies
+// dependencies
 const http = require("http");
 const { handleReqRes } = require("./helpers/handleReqRes");
 const environment = require("./helpers/environments");
+
 // app object - module scaffolding
 const app = {};
 
-// configuration
-app.config = {};
-
-//create server
+// create server
 app.createServer = () => {
   const server = http.createServer(app.handleReqRes);
-  server.listen(app.config.port, () => {
+  server.listen(environment.port, () => {
     console.log(`listening to port ${environment.port}`);
   });
 };
 
-// handle request response
+// handle Request Response
 app.handleReqRes = handleReqRes;
 
 // start the server
